@@ -50,7 +50,7 @@
 
 ## 🔴 Problem Statement
 
-> **SIH25229 — "Identification of URL Based Attacks from IP Data"**
+> **Identification of URL Based Attacks from IP Data**
 > Theme: Cybersecurity · Category: Software
 
 The problem statement demands a system that:
@@ -74,11 +74,11 @@ The problem statement demands a system that:
 
 ## 💡 Proposed Solution
 
-**Zenithal** is an AI-powered, multi-surface URL threat intelligence platform that solves SIH25229 end-to-end:
+**VIOLET** is an AI-powered, multi-surface URL threat intelligence platform that solves the Problem end-to-end:
 
 ```
 ┌────────────────────────────────────────────────────────────┐
-│                   ZENITHAL PLATFORM                         │
+│                   VIOLET PLATFORM                         │
 │                                                            │
 │   ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
 │   │ Dashboard │  │ Android  │  │ Chrome   │  │ Telegram │  │
@@ -117,9 +117,9 @@ The problem statement demands a system that:
 
 ---
 
-## ✅ Why Zenithal Matches the Problem Statement
+## ✅ Why VIOLET Matches the Problem Statement
 
-| PS Phrase | What Zenithal Delivers |
+| PS Phrase | What VIOLET Delivers |
 |---|---|
 | **"URL Based Attacks"** | **Engine 1** detects phishing/malicious URLs (XGBoost + 38 features). **Engine 2** detects SQL injection, XSS, path traversal, command injection, LFI/RFI carried in request URLs via signatures + char n-gram TF-IDF ML. |
 | **"from IP Data"** | Every verdict enriched with GeoIP, ASN/hosting org, reputation, reverse DNS, and **IP↔domain correlation** (brand-geo mismatch). Server attacks aggregated into ranked **attacker-IP profiles** plotted on a world map. |
