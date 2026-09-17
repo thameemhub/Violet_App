@@ -1,0 +1,34 @@
+{
+  "_comment": "Offline IP intelligence reference used when MaxMind GeoLite2 DBs are absent. Curated for demo attacker IPs (real-world plausible geo/ASN/reputation) plus country-block fallbacks. Guarantees the SOC map is populated offline. Drop GeoLite2-City.mmdb + GeoLite2-ASN.mmdb into backend/data/ to switch to live geolocation.",
+  "known_ips": {
+    "45.135.232.17": {"country": "Russia", "country_code": "RU", "city": "Saint Petersburg", "lat": 59.9386, "lon": 30.3141, "asn": 204957, "org": "Chang Way Technologies (bulletproof)", "reputation": "malicious", "hosting_type": "bulletproof"},
+    "185.220.101.4": {"country": "Germany", "country_code": "DE", "city": "Frankfurt", "lat": 50.1109, "lon": 8.6821, "asn": 205100, "org": "F3 Netze (Tor exit)", "reputation": "malicious", "hosting_type": "tor"},
+    "103.224.182.245": {"country": "India", "country_code": "IN", "city": "Mumbai", "lat": 19.0760, "lon": 72.8777, "asn": 45903, "org": "CtrlS Datacenters", "reputation": "suspicious", "hosting_type": "hosting"},
+    "193.239.85.20": {"country": "Netherlands", "country_code": "NL", "city": "Amsterdam", "lat": 52.3676, "lon": 4.9041, "asn": 60781, "org": "LeaseWeb", "reputation": "suspicious", "hosting_type": "hosting"},
+    "5.188.206.130": {"country": "Netherlands", "country_code": "NL", "city": "Amsterdam", "lat": 52.3676, "lon": 4.9041, "asn": 49505, "org": "Selectel (abuse-heavy)", "reputation": "malicious", "hosting_type": "hosting"},
+    "196.196.53.10": {"country": "Nigeria", "country_code": "NG", "city": "Lagos", "lat": 6.5244, "lon": 3.3792, "asn": 328543, "org": "Cloud Hosting NG", "reputation": "suspicious", "hosting_type": "hosting"},
+    "222.186.30.112": {"country": "China", "country_code": "CN", "city": "Nanjing", "lat": 32.0603, "lon": 118.7969, "asn": 4134, "org": "ChinaNet Jiangsu", "reputation": "malicious", "hosting_type": "isp"},
+    "141.98.11.29": {"country": "Lithuania", "country_code": "LT", "city": "Vilnius", "lat": 54.6872, "lon": 25.2797, "asn": 209160, "org": "Cherry Servers (bulletproof)", "reputation": "malicious", "hosting_type": "bulletproof"},
+    "45.155.205.233": {"country": "Seychelles", "country_code": "SC", "city": "Victoria", "lat": -4.6191, "lon": 55.4513, "asn": 44477, "org": "Stark Industries (bulletproof)", "reputation": "malicious", "hosting_type": "bulletproof"},
+    "203.0.113.42": {"country": "Singapore", "country_code": "SG", "city": "Singapore", "lat": 1.3521, "lon": 103.8198, "asn": 0, "org": "Documentation range (TEST-NET-3)", "reputation": "suspicious", "hosting_type": "hosting"}
+  },
+  "country_fallback": {
+    "RU": {"country": "Russia", "city": "Moscow", "lat": 55.7558, "lon": 37.6173},
+    "CN": {"country": "China", "city": "Beijing", "lat": 39.9042, "lon": 116.4074},
+    "US": {"country": "United States", "city": "Ashburn", "lat": 39.0438, "lon": -77.4874},
+    "IN": {"country": "India", "city": "Mumbai", "lat": 19.0760, "lon": 72.8777},
+    "NL": {"country": "Netherlands", "city": "Amsterdam", "lat": 52.3676, "lon": 4.9041},
+    "DE": {"country": "Germany", "city": "Frankfurt", "lat": 50.1109, "lon": 8.6821},
+    "BR": {"country": "Brazil", "city": "Sao Paulo", "lat": -23.5505, "lon": -46.6333},
+    "NG": {"country": "Nigeria", "city": "Lagos", "lat": 6.5244, "lon": 3.3792},
+    "SG": {"country": "Singapore", "city": "Singapore", "lat": 1.3521, "lon": 103.8198},
+    "GB": {"country": "United Kingdom", "city": "London", "lat": 51.5074, "lon": -0.1278},
+    "FR": {"country": "France", "city": "Paris", "lat": 48.8566, "lon": 2.3522},
+    "LT": {"country": "Lithuania", "city": "Vilnius", "lat": 54.6872, "lon": 25.2797}
+  },
+  "brand_expected_geo": {
+    "sbi.co.in": "IN", "onlinesbi.sbi": "IN", "hdfcbank.com": "IN", "icicibank.com": "IN",
+    "paypal.com": "US", "amazon.com": "US", "google.com": "US", "microsoft.com": "US",
+    "netflix.com": "US", "apple.com": "US", "incometax.gov.in": "IN"
+  }
+}

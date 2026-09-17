@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="violet_primary">#6D28D9</color>
+    <color name="violet_primary_container">#EDE9FE</color>
+    <color name="violet_secondary">#8B5CF6</color>
+    <color name="background_light">#FAFAFF</color>
+    <color name="background_dark">#1A1625</color>
+    <color name="risk_high">#DC2626</color>
+    <color name="safe_green">#16A34A</color>
+    <color name="pending_amber">#F59E0B</color>
+</resources>

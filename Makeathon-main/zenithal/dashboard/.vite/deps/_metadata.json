@@ -1,0 +1,73 @@
+{
+  "hash": "73d3e08c",
+  "configHash": "8533eea3",
+  "lockfileHash": "e3b0c442",
+  "browserHash": "ef58c2dc",
+  "optimized": {
+    "react": {
+      "src": "../../../../PhishGuard/dashboard/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "eeddb2e5",
+      "needsInterop": true
+    },
+    "react-dom": {
+      "src": "../../../../PhishGuard/dashboard/node_modules/react-dom/index.js",
+      "file": "react-dom.js",
+      "fileHash": "e8831310",
+      "needsInterop": true
+    },
+    "react/jsx-dev-runtime": {
+      "src": "../../../../PhishGuard/dashboard/node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "45ee3eae",
+      "needsInterop": true
+    },
+    "react/jsx-runtime": {
+      "src": "../../../../PhishGuard/dashboard/node_modules/react/jsx-runtime.js",
+      "file": "react_jsx-runtime.js",
+      "fileHash": "d48972a3",
+      "needsInterop": true
+    },
+    "axios": {
+      "src": "../../../../PhishGuard/dashboard/node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "dd17244c",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../../../PhishGuard/dashboard/node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "4b49a2ec",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../../../PhishGuard/dashboard/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "96a9d9f6",
+      "needsInterop": true
+    },
+    "react-leaflet": {
+      "src": "../../../../PhishGuard/dashboard/node_modules/react-leaflet/lib/index.js",
+      "file": "react-leaflet.js",
+      "fileHash": "9ee9480f",
+      "needsInterop": false
+    },
+    "recharts": {
+      "src": "../../../../PhishGuard/dashboard/node_modules/recharts/es6/index.js",
+      "file": "recharts.js",
+      "fileHash": "9c690907",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-MBRDHF4X": {
+      "file": "chunk-MBRDHF4X.js"
+    },
+    "chunk-6YB5JSBW": {
+      "file": "chunk-6YB5JSBW.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
+}

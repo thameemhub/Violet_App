@@ -1,0 +1,181 @@
+{
+  "project": "PhishGuard AI OmniGuard",
+  "type": "AI-powered multi-channel phishing and social-engineering detection platform",
+  "core_idea": "Unify phishing defense across web URLs, email, text/WhatsApp/SMS, QR codes, deep website crawling, and voice/vishing. Each input is analyzed by ML, heuristics, external reputation signals, and optional LLM reasoning, then logged and streamed to a SOC-style dashboard.",
+  "target_users": [
+    "individuals",
+    "SMBs",
+    "SOC teams",
+    "enterprise/government security teams"
+  ],
+  "repo_state": {
+    "root_app": "Active demo implementation in /backend, /dashboard, /extension, /docs.",
+    "nested_app": "/PhishGuard is a richer production/SaaS variant with auth, billing, admin, protected dashboard, mobile app, prod compose, and migrations.",
+    "note": "There is duplicated structure between root and /PhishGuard. Treat root as current demo surface and nested /PhishGuard as expanded production direction.",
+    "whatsapp_bot": "Folder exists but has no tracked implementation files; WhatsApp is mostly represented through text analysis/dashboard concepts."
+  },
+  "architecture": {
+    "clients": {
+      "dashboard": "React + Vite + Tailwind SOC console with panels for feed, crawl, voice, WhatsApp/text, QR, SMS simulator, geo map, alerts; nested version adds auth/settings/API token UI.",
+      "extension": "Chrome Manifest V3 extension scans links/Gmail/QR context menu, caches results, has offline URL heuristics.",
+      "mobile": "Nested Expo app supports URL scan, QR camera scan, voice upload, email/alerts screens."
+    },
+    "backend": {
+      "framework": "FastAPI Python 3.11",
+      "api_prefix": "/api/v1",
+      "storage": "PostgreSQL for detections/feedback/crawl reports/domain cache; nested version adds organizations, users, API keys, usage ledger.",
+      "cache": "Redis for external API cache and rate limiting.",
+      "object_storage": "MinIO intended for screenshots/audio/model artifacts.",
+      "realtime": "WebSocket feed for dashboard detections and SMS simulator.",
+      "deployment": "Docker Compose; nested prod stack includes Postgres, Redis, MinIO, backend, dashboard, Nginx, Playwright."
+    },
+    "ml_pipeline": {
+      "url": "38-feature URL extractor + XGBoost + VirusTotal + WHOIS + Qwen/Ollama reasoning.",
+      "email_text": "TF-IDF/LogReg or DistilBERT-style classifier + extracted URL scoring + social engineering heuristics + Qwen reasoning.",
+      "voice": "Whisper transcription + RoBERTa/BERT-style vishing tactic classifier + Qwen reasoning.",
+      "qr": "OpenCV + pyzbar decode, then URL analysis for decoded URLs.",
+      "deep_crawl": "Playwright crawler analyzes JS, forms, redirects, network requests, screenshots/visual similarity; enhanced/nested code references CodeBERT and CLIP.",
+      "ai_content": "GPTZero/SVM-style AI text detector exists in ML modules/bootstrap plan."
+    }
+  },
+  "major_endpoints": {
+    "root": [
+      "GET /api/v1/health",
+      "POST /api/v1/analyze/url",
+      "POST /api/v1/analyze/email",
+      "POST /api/v1/analyze/text",
+      "POST /api/v1/crawl/site",
+      "POST /api/v1/voice/analyze",
+      "POST /api/v1/qr/decode",
+      "POST /api/v1/feedback",
+      "GET /api/v1/dashboard/stats",
+      "GET /api/v1/dashboard/detections",
+      "WS /api/v1/ws/feed",
+      "WS /api/v1/ws/sms-simulator"
+    ],
+    "nested_extra": [
+      "POST /api/v1/auth/register",
+      "POST /api/v1/auth/login",
+      "POST /api/v1/auth/refresh",
+      "POST /api/v1/auth/api-keys",
+      "POST /api/v1/scan/url",
+      "POST /api/v1/scan/text",
+      "POST /api/v1/scan/email",
+      "GET /api/v1/billing/usage",
+      "GET /api/v1/billing/plan",
+      "POST /api/v1/billing/create-checkout-session",
+      "GET /api/v1/admin/org",
+      "GET /api/v1/admin/users"
+    ]
+  },
+  "data_flow": [
+    "Client submits URL/email/text/audio/QR/crawl request.",
+    "FastAPI validates and sanitizes input.",
+    "Relevant ML/heuristic/external enrichment modules produce score, verdict, signals, reasoning.",
+    "Detection is hashed/logged to DB with channel, threat_type, confidence, verdict, metadata.",
+    "Dashboard receives real-time event over WebSocket.",
+    "User feedback can be logged for later retraining."
+  ],
+  "tech_stack": {
+    "backend": [
+      "FastAPI",
+      "Pydantic",
+      "SQLAlchemy async",
+      "Alembic",
+      "Redis",
+      "MinIO",
+      "slowapi",
+      "httpx"
+    ],
+    "ml": [
+      "scikit-learn",
+      "XGBoost",
+      "Transformers",
+      "PyTorch",
+      "Whisper",
+      "OpenCV",
+      "pyzbar",
+      "ImageHash",
+      "Playwright",
+      "Ollama/Qwen"
+    ],
+    "frontend": [
+      "React 18",
+      "Vite",
+      "TailwindCSS",
+      "Recharts",
+      "React Leaflet",
+      "Lucide",
+      "Axios"
+    ],
+    "extension": [
+      "Chrome MV3",
+      "vanilla JS",
+      "chrome.storage",
+      "contextMenus"
+    ],
+    "mobile": [
+      "Expo",
+      "React Native",
+      "expo-camera",
+      "expo-document-picker"
+    ],
+    "infra": [
+      "Docker Compose",
+      "Nginx",
+      "PostgreSQL",
+      "Redis"
+    ]
+  },
+  "database_entities": {
+    "root": [
+      "Detection",
+      "FeedbackLog",
+      "CrawlReport",
+      "DomainCache"
+    ],
+    "nested_extra": [
+      "Organization",
+      "User",
+      "APIKey",
+      "UsageLedger"
+    ]
+  },
+  "training_and_models": {
+    "scripts": [
+      "train_url_classifier.py",
+      "train_text_classifier.py",
+      "train_ai_detector.py",
+      "train_roberta_vishing.py",
+      "train_codebert.py",
+      "bootstrap_models.py"
+    ],
+    "model_files": [
+      "url_classifier_v1.pkl",
+      "text_classifier_v1.pkl",
+      "ai_detector_svm_v1.pkl",
+      "brand_hashes.json",
+      "roberta_phishing/*"
+    ],
+    "datasets": [
+      "Phishing_Legitimate_full.csv",
+      "synthetic phishing/safe samples",
+      "planned PhishTank/OpenPhish/Tranco/Enron/Nazario"
+    ]
+  },
+  "product_strength": "The sharp concept is omnichannel correlation: one detection brain and one live dashboard for attacks that move across links, email, messaging, QR, websites, and phone calls.",
+  "known_gaps": [
+    "Root and nested trees are duplicated and should be reconciled.",
+    "Some docs describe planned modules more completely than root code implements.",
+    "Standalone WhatsApp bot is not present in tracked files.",
+    "Root app lacks nested SaaS auth/billing; nested app has it.",
+    "Some model assets are bootstrap/synthetic or placeholders and need production training data."
+  ],
+  "how_to_run": {
+    "backend": "cd backend && py -3.11 -m uvicorn app.main:app --reload --port 8000",
+    "dashboard": "cd dashboard && npm install && npm run dev",
+    "extension": "Load /extension as unpacked Chrome extension.",
+    "nested_prod": "cd PhishGuard && ./deploy.sh"
+  },
+  "questions": []
+}

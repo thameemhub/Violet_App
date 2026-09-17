@@ -1,0 +1,16 @@
+# Zenithal — OPTIONAL production extras (install on top of requirements.txt).
+# The app runs fully without these; each unlocks one production capability.
+
+-r requirements.txt
+
+# Postgres (set DATABASE_URL=postgresql+asyncpg://...)
+asyncpg==0.30.0
+
+# Redis cache + shared rate limiting (set REDIS_URL=redis://...)
+redis==5.2.1
+
+# Error monitoring (set SENTRY_DSN=...)
+sentry-sdk==2.18.0
+
+# Production ASGI server option (alternative to uvicorn --workers)
+gunicorn==23.0.0

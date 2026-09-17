@@ -1,0 +1,25 @@
+# Zenithal — full stack in one command:  docker compose up --build
+# Dashboard: http://localhost:8080   API: http://localhost:8000
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # mount real datasets here to retrain, and GeoLite2 mmdb for live geo
+      - ./backend/training/data:/app/training/data
+      - ./backend/data:/app/data
+    restart: unless-stopped
+
+  dashboard:
+    build:
+      context: ./dashboard
+      args:
+        # same-origin: nginx proxies /api to the backend service
+        VITE_API_URL: ""
+        VITE_WS_URL: ""
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

@@ -1,0 +1,2 @@
+198.51.100.77 - - [16/Jul/2026:10:05:03 +0000] "GET /item?id=1 UNION SELECT password FROM users-- HTTP/1.1" 500 0 "-" "sqlmap"
+198.51.100.77 - - [16/Jul/2026:10:05:04 +0000] "GET /p?f=../../../../etc/passwd HTTP/1.1" 404 0 "-" "curl"
