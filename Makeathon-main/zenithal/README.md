@@ -1,4 +1,4 @@
-<![CDATA[<div align="center">
+<div align="center">
 
 # 🛡️ Zenithal — Identification of URL-Based Attacks from IP Data
 
