@@ -1,8 +1,6 @@
 <div align="center">
 
-# 🛡️ Zenithal — Identification of URL-Based Attacks from IP Data
-
-### **Smart India Hackathon · SIH25229 · Theme: Cybersecurity · Team: The Zenithal**
+# 🛡️ Violet — Identification of URL-Based Attacks from IP Data
 
 > **One detection brain** that identifies phishing links *and* server-side injection attacks,
 > fuses **IP intelligence** (geolocation, ASN, reputation, IP↔domain correlation) to score,
